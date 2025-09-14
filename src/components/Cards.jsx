@@ -5,12 +5,13 @@ const addToCart = () => {
 }
 
 const Cards = ({data}) => {
-    const title = "Title";
+    const {title,price,image} = data;//mock title Receive it from data props
     return (
         <div>
-            <img src="" alt="" />
+            <img src={image} alt="Picture of Item" />
             <div>
                 <h3>{title}</h3>
+                <p>Price={price}</p>
                 <ButtonInc /> 
                 <button onClick={()=>addToCart}>Add to Cart</button>
             </div>

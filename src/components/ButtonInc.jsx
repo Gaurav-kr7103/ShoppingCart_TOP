@@ -1,15 +1,17 @@
 import {useState} from "react";
 
 const ButtonInc = () => {
-    const [input, setInput] = useState(null);
+    const [input, setInput] = useState(1);
     const changeInput = (newInput) => {
         setInput(newInput);
     }
     return (
         <div>
-            <button>+</button>
-            <input type="number" value={1} placeholder="1?" onChange={()=>changeInput}/>
-            <button>-</button>
+            {input>0 &&
+                <button onClick={()=>(setInput((prev) => prev-1))}>-</button>
+            }
+            <input type="number" value={input} placeholder="1?" onChange={(e)=>changeInput(e.target.value)}/>
+            <button onClick={()=>(setInput((prev) => prev+1))}>+</button>
         </div>
     )
 }

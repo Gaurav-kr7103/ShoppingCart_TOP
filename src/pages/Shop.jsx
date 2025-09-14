@@ -1,30 +1,29 @@
 import { useEffect, useState } from "react";
+import { Cards } from "../components/Cards";
 
 const Shop = () => {
     const [shoppingList, setShoppingList] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const URL = "";
+    const URL = "https://fakestoreapi.com/products";
 
-    const getShoppingCart = useEffect(()=> {
+    useEffect(()=> {
         const getShoppingCart = async () => {
             try {
-                const res = await fetch(url);
+                const res = await fetch(URL);
                 if (!res.ok) {
                     throw new Error("Unable to Load the Items");
                 }
                 const data = await res.json();
-                setLoading(false);
+                console.log(data);
                 setError(null);
-                setShoppingList(/*data...*/);
-            } catch {
-                setError(error);
-                setLoading(false);
-            } //I dont think that Finally is necessary
-            /*
+                setShoppingList(data);
+            } catch (error) {
+                setError(error.message);
+            }
             finally {
-                setLoading(true);
-            }*/
+                setLoading(false);
+            }
         }
         getShoppingCart();
         // return function
@@ -42,9 +41,11 @@ const Shop = () => {
     return (
         // iterate in shopping list
         <div>
-            {shoppingList.map((data) => (
-                <Cards data={data} />
-            ))}
+            {
+                shoppingList.map((data) => {
+                    return <Cards key={data.id} data={data} />
+                })
+            }
         </div>
     );
 };
