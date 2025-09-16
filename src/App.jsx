@@ -1,24 +1,28 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import './App.css'
-
-import { Shop } from './pages/Shop';
+import { Link, Outlet } from 'react-router';
 
 function App() {
+  const [cartItems, setCartItems] = useState([]);
   return (
     <div>
       <nav>
         <ul>
           <li>Home</li>
-          <li>Shop</li>
+          <li>
+            <Link to="/shop"> Shop</Link>
+          </li>
         </ul>
         <ul>
-          <li>Cart</li>
+          <li>
+            <Link to="/cart">Cart</Link>
+          </li>
           <li>About</li>
           <li>Contact Us</li>
         </ul>
       </nav>
 
-      <Shop />
+      <Outlet context={[cartItems, setCartItems]}/>
     </div>
   );
 }

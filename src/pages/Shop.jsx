@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { Cards } from "../components/Cards";
+import { useOutletContext } from "react-router";
 
 const Shop = () => {
     const [shoppingList, setShoppingList] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [cartItems, setCartItems] = useOutletContext();
+    
     const URL = "https://fakestoreapi.com/products";
 
     useEffect(()=> {
@@ -15,6 +18,8 @@ const Shop = () => {
                     throw new Error("Unable to Load the Items");
                 }
                 const data = await res.json();
+                // data.forEach((data) => data.quantity = 0);
+
                 console.log(data);
                 setError(null);
                 setShoppingList(data);
@@ -38,12 +43,19 @@ const Shop = () => {
         </div>);
     }
 
+    // const [cartItems, setCartItems] = useOutletContext();
+    
     return (
         // iterate in shopping list
         <div>
             {
                 shoppingList.map((data) => {
-                    return <Cards key={data.id} data={data} />
+                    return <Cards 
+                        key={data.id} 
+                        data={data} 
+                        cartItems={cartItems}
+                        setCartItems={setCartItems}
+                    />
                 })
             }
         </div>
