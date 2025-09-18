@@ -4,10 +4,13 @@ import { useOutletContext } from "react-router";
 
 const Cards = ({data}) => {
     const {title,price,image} = data;//mock title Receive it from data props
-    const [quantity, setQuantity] = useState(1); 
+    const [quantity, setQuantity] = useState(data.quantity); 
     const [cartItems, setCartItems] = useOutletContext();
 
     const addToCart = () => {
+        if (quantity === 0) {
+            removeFromCart();
+        }
         // function add element to the cart             FUNCTION TO ADD ELEMENT TO THE CART
         let items = [];
         if (cartItems.length !== 0)
@@ -23,6 +26,14 @@ const Cards = ({data}) => {
         }
         setCartItems(items);
     }
+
+    function removeFromCart () {
+        const idx = cartItems.findIndex(items => items.id === data.id) 
+        const items = [...cartItems];
+        items.splice(idx, 1);
+        setCartItems(items);
+    }
+
     return (
         <div>
             <img src={image} alt="Picture of Item" />
@@ -30,7 +41,11 @@ const Cards = ({data}) => {
                 <h3>{title}</h3>
                 <p>Price={price}</p>
                 <ButtonInc quantity={quantity} setQuantity={setQuantity}/>
-                <button onClick={addToCart}>Add to Cart</button>
+                {
+                    cartItems.findIndex(items => items.id === data.id) === -1 &&
+                        <button onClick={addToCart}>Add to Cart</button>
+                    || <button onClick={removeFromCart}>Remove From Cart</button>
+                }
             </div>
         </div>
     )

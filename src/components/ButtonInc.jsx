@@ -8,7 +8,7 @@ const ButtonInc = ({quantity, setQuantity}) => {
 
     return (
         <div>
-            {quantity>0 &&
+            {quantity>1 &&
                 <button onClick={()=>(setQuantity((prev) => prev-1))}>-</button>
             }
             <input type="number" value={quantity} placeholder="1?" onChange={(e)=>changeInput(e.target.value)}/>

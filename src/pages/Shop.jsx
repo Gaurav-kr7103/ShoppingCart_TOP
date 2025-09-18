@@ -18,7 +18,12 @@ const Shop = () => {
                     throw new Error("Unable to Load the Items");
                 }
                 const data = await res.json();
-                // data.forEach((data) => data.quantity = 0);
+                const newData = data.map((data_) => {
+                    const idx = cartItems.findIndex((item) => item.id === data_.id)
+                    const quantity = idx === -1? 0 : cartItems[idx].quantity;
+                    data_.quantity = quantity;
+                    return;
+                });
 
                 console.log(data);
                 setError(null);
