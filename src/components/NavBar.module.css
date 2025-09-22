@@ -1,0 +1,25 @@
+img {
+    /* flex: 1; */
+    /* object-fit: contain; */
+    width: 100%; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+    /* margin-right : 1; Add spacing between the image and other elements */
+}
+nav {
+    height: 15%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--color-power1);
+
+}
+nav > ul {
+    list-style: none;
+    display: flex;
+    gap : 4rem;
+}
+a,li {
+    font-size: var(--font-subheading);
+    color : var(--color-font1);
+    text-decoration: none;
+}

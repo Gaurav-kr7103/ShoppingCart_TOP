@@ -5,9 +5,11 @@ import { useOutletContext } from "react-router";
 const Cards = ({data}) => {
     const {title,price,image} = data;//mock title Receive it from data props
     const [quantity, setQuantity] = useState(data.quantity); 
+    const [buy, setBuy] = useState(false);
     const [cartItems, setCartItems] = useOutletContext();
 
     const addToCart = () => {
+        
         if (quantity === 0) {
             removeFromCart();
         }
@@ -24,7 +26,9 @@ const Cards = ({data}) => {
         } else {
             items[idx].quantity = quantity;
         }
+        console.log("item add");
         setCartItems(items);
+    
     }
 
     function removeFromCart () {
@@ -36,15 +40,22 @@ const Cards = ({data}) => {
 
     return (
         <div>
-            <img src={image} alt="Picture of Item" />
+            <img src={image} alt={title} />
             <div>
                 <h3>{title}</h3>
                 <p>Price={price}</p>
-                <ButtonInc quantity={quantity} setQuantity={setQuantity}/>
+                <ButtonInc quantity={quantity} setQuantity={setQuantity} addToCart={addToCart} buy={buy}/>
                 {
-                    cartItems.findIndex(items => items.id === data.id) === -1 &&
-                        <button onClick={addToCart}>Add to Cart</button>
-                    || <button onClick={removeFromCart}>Remove From Cart</button>
+                    (buy === false || data.quantity!=0) &&
+                        <button onClick={() => { 
+                            setBuy(true);
+                            addToCart(); 
+                        }}>Add to Cart</button>
+                    || <button onClick={() => {
+                        setBuy(false);
+                        removeFromCart();
+                    }}>Remove From Cart</button>   
+                    // , setBuy(false)setBuy(true),
                 }
             </div>
         </div>

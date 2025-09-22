@@ -1,0 +1,26 @@
+import {Link} from 'react-router';
+import './NavBar.module.css';
+
+const Navbar = () => {
+    return (
+        <nav>
+            <Link to='/'><img src="https://www.svgrepo.com/show/474358/merchant-shop.svg" alt="" /></Link>
+            <ul>
+                <li>
+                    <Link to="/">Home</Link>
+                </li>
+                <li>
+                    <Link to="/shop"> Shop</Link>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <Link to="/cart">Cart</Link>
+                </li>
+                <li>About</li>
+                <li>Contact Us</li>
+            </ul>
+        </nav>
+    )
+}
+export default Navbar;
