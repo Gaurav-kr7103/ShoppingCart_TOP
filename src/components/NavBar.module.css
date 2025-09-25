@@ -20,9 +20,29 @@ nav > ul {
 }
 a,li {
     font-size: var(--font-subheading);
-    color : white;
+    color : var(--color-font1);
     text-decoration: none;
 }
-a {
+
+/* Cart counter wrapper */
+nav .count {
+    position: relative;
+    display: inline-block; /* make it wrap around the link */
+}
+
+/* The cart count bubble */
+nav .count > div {
+    position: absolute;
+    top: -8px;      /* slightly above the Cart text */
+    right: -8px;    /* slightly right of the Cart text */
+    background-color: crimson;
     color: white;
+    font-size: 0.65rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+    min-width: 18px;
+    text-align: center;
+    line-height: 1;
+    box-shadow: 0 0 2px rgba(0,0,0,0.3);
 }

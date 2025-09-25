@@ -63,7 +63,7 @@ const Cart = () => {
                     paddingTop : "20px",
                     paddingBottom : "20px"
         }}>
-            Your Cart
+            Your Cart (Total Amount = ₹{overAllPrice})
         </h1>
         <div className={styles.nonEmpty}>
             {
@@ -91,10 +91,6 @@ const Cart = () => {
                     );
                 })
             }
-        </div>
-
-        <div>
-            {overAllPrice}
         </div>
         </>
     )

@@ -1,7 +1,9 @@
+/* ---------- Product Grid ---------- */
 .cards {
-    /* background-color: black; */
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(10vw, 1fr));
-    gap: 10px;
-    /* display: flex; */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
 }

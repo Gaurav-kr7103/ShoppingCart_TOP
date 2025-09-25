@@ -1,7 +1,7 @@
 import {Link} from 'react-router';
 import styles from './NavBar.module.css';
 
-const Navbar = () => {
+const Navbar = ({quantity}) => {
     return (
         <nav>
             <Link to='/'><img src="https://www.svgrepo.com/show/474358/merchant-shop.svg" alt="" /></Link>
@@ -15,10 +15,11 @@ const Navbar = () => {
             </ul>
             <ul>
                 <li>
+                    <div>{quantity}</div>
                     <Link to="/cart">Cart</Link>
                 </li>
-                <li>About</li>
-                <li>Contact Us</li>
+                {/* <li>About</li>
+                <li>Contact Us</li> */}
             </ul>
         </nav>
     )

@@ -44,16 +44,21 @@ const Shop = () => {
     
     return (
         // iterate in shopping list
-        <div className={styles.cards}>
-            {
-                shoppingList.map((data) => {
-                    return <ShopCards 
-                        key={data.id} 
-                        data={data}
-                    />
-                })
-            }
-        </div>
+        <>
+            {/* <div>
+                
+            </div> */}
+            <div className={styles.cards}>
+                {
+                    shoppingList.map((data) => {
+                        return <ShopCards 
+                            key={data.id} 
+                            data={data}
+                        />
+                    })
+                }
+            </div>
+        </>
     );
 };
 

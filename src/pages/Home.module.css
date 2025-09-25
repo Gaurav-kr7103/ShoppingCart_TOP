@@ -1,0 +1,57 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 20px;
+    text-align: center;
+
+    /* Gradient overlay + image */
+    background: linear-gradient(135deg, rgba(240, 244, 255, 0.1), rgba(254, 254, 254, 0.2)),
+                url('emptyBackground.jpg');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* Heading */
+.home h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Welcome paragraph */
+.home p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 700px;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+/* Call-to-action */
+.cta {
+    font-size: 1.2rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cta a {
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: #0077cc;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s ease-in-out;
+}
+
+.cta a:hover {
+    background: #005fa3;
+}
