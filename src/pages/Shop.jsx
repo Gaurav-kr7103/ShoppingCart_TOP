@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { ShopCards } from "../components/ShopCards"
 import styles from "./Shop.module.css";
-
 const Shop = () => {
     const [shoppingList, setShoppingList] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -40,14 +39,24 @@ const Shop = () => {
         </div>);
     }
 
-    // const [cartItems, setCartItems] = useOutletContext();
-    
+    const handleChange = (e) => {
+        if(e.target.value === "inc") {
+            sortByIncPrice();
+        } else if(e.target.value === "dec") {
+            sortByDecPrice();
+        }
+    }
+
     return (
         // iterate in shopping list
         <>
-            {/* <div>
-                
-            </div> */}
+            <div className={styles.dropDown}>
+                <label htmlFor="sortBy">Sort By</label>
+                <select name="sortBy" id="sortBy" onChange={handleChange}>
+                    <option value="inc">Price(increasing)</option>
+                    <option value="dec">Price(decreasing)</option>
+                </select>
+            </div>
             <div className={styles.cards}>
                 {
                     shoppingList.map((data) => {
@@ -60,6 +69,18 @@ const Shop = () => {
             </div>
         </>
     );
+
+    function sortByIncPrice() {
+        const list = [...shoppingList];
+        list.sort((a, b) => a.price - b.price);
+        setShoppingList(list);
+    }
+    function sortByDecPrice() {
+        const list = [...shoppingList];
+        list.sort((a, b) => b.price - a.price);
+        setShoppingList(list);
+    }
+
 };
 
 export {Shop};

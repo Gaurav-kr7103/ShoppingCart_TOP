@@ -14,9 +14,10 @@ const Navbar = ({quantity}) => {
                 </li>
             </ul>
             <ul>
-                <li>
-                    <div>{quantity}</div>
-                    <Link to="/cart">Cart</Link>
+                <li className={styles.count}> 
+                    <Link to="/cart">Cart
+                        <div>{quantity}</div>
+                    </Link>
                 </li>
                 {/* <li>About</li>
                 <li>Contact Us</li> */}

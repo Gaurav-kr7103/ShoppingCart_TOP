@@ -24,25 +24,21 @@ a,li {
     text-decoration: none;
 }
 
-/* Cart counter wrapper */
-nav .count {
-    position: relative;
-    display: inline-block; /* make it wrap around the link */
+.count > a {
+    position: relative;    
 }
-
-/* The cart count bubble */
-nav .count > div {
+.count > a > div {
     position: absolute;
-    top: -8px;      /* slightly above the Cart text */
-    right: -8px;    /* slightly right of the Cart text */
-    background-color: crimson;
-    color: white;
-    font-size: 0.65rem;
+    bottom: 100%;
+    left: 100%;
+    font-size: 1rem;
+    width: 20px;                 
+    height: 20px;                
+    background-color: crimson;   /* bubble color */
+    color: white;                /* text color */
     font-weight: bold;
-    padding: 2px 6px;
-    border-radius: 50%;
-    min-width: 18px;
-    text-align: center;
-    line-height: 1;
-    box-shadow: 0 0 2px rgba(0,0,0,0.3);
+    border-radius: 50%;          /* make it circular */
+    display: flex;
+    align-items: center;
+    justify-content: center; 
 }

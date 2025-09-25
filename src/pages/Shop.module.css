@@ -1,3 +1,47 @@
+/* Drop DOWn start  */
+/* Container for label + select */
+.dropDown {
+    margin-top : 2px;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* space between label and select */
+    margin-bottom: 2px;
+    justify-content: flex-end;
+    padding-right: 10%;
+}
+
+/* Label styling */
+.dropDown label {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Select dropdown styling */
+.dropDown select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #fff;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect for select */
+.dropDown select:hover {
+    border-color: #0070f3;
+}
+
+/* Focus effect for select */
+.dropDown select:focus {
+    outline: none;
+    border-color: #0070f3;
+    box-shadow: 0 0 0 2px rgba(0, 112, 243, 0.2);
+}
+
+/* Drop Down ENd */
+
 /* ---------- Product Grid ---------- */
 .cards {
     display: grid;
@@ -7,3 +51,5 @@
     max-width: 1200px;
     margin: auto;
 }
+
+
