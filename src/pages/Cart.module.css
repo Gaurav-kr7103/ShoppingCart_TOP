@@ -1,0 +1,67 @@
+/* For Empty Cart */
+.emptyCart {
+    padding-top: 30px;
+    height: 100%;
+    width: 100%;
+    position : relative;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    background-image: url('/emptyBackground.jpg');
+    background-size: contain;
+    background-position: center;
+}
+
+.emptyCart > img {
+    height: 20vh;
+    object-fit: contain;
+    /* flex: 0.5; */
+    /* position: absolute; */
+}
+
+.emptyCart > div {
+    /* flex: 1; */
+}
+
+.emptyCart > div > h2 {
+    text-align: center;
+    font-size: var(--font-superheading);
+}
+
+.emptyCart > div > h3 {
+    padding-top: 20px;
+    text-align: center;
+}
+
+a {
+    color: black;
+}
+
+/*For NonEmptyCart*/
+.nonEmpty {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.nonEmpty > div > img {
+    object-fit: contain;
+    max-width: 20%;
+}
+
+.nonEmpty > div {
+    display: flex;
+    /* align-items: center; */
+}
+
+.quantity {
+    display: flex;
+    flex-direction: row;
+    gap : 2px;
+}
+.quantity > div {
+    flex : 2;
+}
+.quantity > div + div {
+    flex : 1;
+}

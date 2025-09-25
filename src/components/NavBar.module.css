@@ -20,6 +20,9 @@ nav > ul {
 }
 a,li {
     font-size: var(--font-subheading);
-    color : var(--color-font1);
+    color : white;
     text-decoration: none;
+}
+a {
+    color: white;
 }
